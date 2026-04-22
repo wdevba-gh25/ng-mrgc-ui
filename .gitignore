@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+coverage/
+.angular/
+.vscode/
+.idea/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
