@@ -6,7 +6,7 @@ import { CollapseResponse, DispatchRequest, DispatchResult, HealthResponse } fro
 @Injectable({ providedIn: 'root' })
 export class EmergencyApiService {
   private readonly http = inject(HttpClient);
-  private readonly baseUrl = 'http://20.81.83.150:4001';
+  private readonly baseUrl = 'http://52.150.40.216:4001';
 
   healthCheck(): Promise<HealthResponse> {
     return firstValueFrom(this.http.get<HealthResponse>(`${this.baseUrl}/health`));
