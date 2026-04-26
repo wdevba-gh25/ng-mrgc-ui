@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emergency-surge-frontend
+  namespace: aks-mrgnc-surge-dev
+spec:
+  selector:
+    app: emergency-surge-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer

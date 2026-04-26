@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emergency-surge-frontend
+  namespace: aks-mrgnc-surge-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emergency-surge-frontend
+  template:
+    metadata:
+      labels:
+        app: emergency-surge-frontend
+    spec:
+      containers:
+        - name: emergency-surge-frontend
+          image: acremergencysurge.azurecr.io/ng-mrgc-ui-image:dev-v2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
