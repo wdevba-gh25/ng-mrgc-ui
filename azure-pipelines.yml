@@ -1,0 +1,15 @@
+trigger:
+- develop
+
+pool:
+  name: mrgnc-self-hosted
+
+steps:
+- script: |
+    kubectl config current-context
+    kubectl get ns
+    kubectl apply -f k8s/dev/frontend-deployment.yaml
+    kubectl apply -f k8s/dev/frontend-service.yaml
+    kubectl rollout status deployment/emergency-surge-frontend -n aks-mrgnc-surge-dev
+    kubectl get all -n aks-mrgnc-surge-dev
+  displayName: 'Deploy frontend to Dev'
